@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="131dp"
         android:contentDescription="@string/logo"
         app:srcCompat="@drawable/logo" />
@@ -113,6 +113,17 @@
         android:layout_marginBottom="-40dp"
         android:layout_centerHorizontal="true"
         android:text="Terms and Conditions"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView_logIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_terms"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="-40dp"
+        android:layout_centerHorizontal="true"
+        android:text="Login"
         android:textColor="@android:color/white" />
 
 
