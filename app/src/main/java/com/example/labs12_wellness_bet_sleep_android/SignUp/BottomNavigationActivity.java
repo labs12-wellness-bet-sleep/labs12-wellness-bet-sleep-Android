@@ -12,12 +12,12 @@ import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.dashBoardFragm
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.homeFragment;
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.roomsFragment;
 
-public class bottomNavigatoinActivity extends AppCompatActivity {
+public class BottomNavigationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_navigatoin);
+        setContentView(R.layout.activity_bottom_navigation);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);

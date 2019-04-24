@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/softerViolet"
-    tools:context=".SignUp.bottomNavigatoinActivity">
+    tools:context=".SignUp.BottomNavigationActivity">
     
     <FrameLayout
         android:layout_width="match_parent"

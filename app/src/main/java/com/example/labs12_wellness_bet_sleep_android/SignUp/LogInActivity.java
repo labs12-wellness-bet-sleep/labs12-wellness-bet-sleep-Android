@@ -28,8 +28,8 @@ import java.util.Map;
 
 public class LogInActivity extends AppCompatActivity {
 
-    public static final String BASE_URL = "whateveverurl";
-    public static final String USER_URL = BASE_URL + "/product";
+    public static final String BASE_URL = "whateverurl";
+    public static final String USER_URL = BASE_URL + "/user";
     public static final String TAG = "LoginTag";
 
     private  EditText name, password;
@@ -44,6 +44,7 @@ public class LogInActivity extends AppCompatActivity {
 
         name = findViewById(R.id.name_text);
         password=  findViewById(R.id.password_text);
+        parentLayout = findViewById(R.id.parent_layout);
         CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
 
@@ -130,7 +131,7 @@ public class LogInActivity extends AppCompatActivity {
 //
 //    private void validate(String username, String userPassword){
 //        if((username.equals("Admin")) && (userPassword.equals("1234"))) {
-//            Intent intent = new Intent(LogInActivity.this, bottomNavigatoinActivity.class);
+//            Intent intent = new Intent(LogInActivity.this, BottomNavigationActivity.class);
 //            startActivity(intent);
 //        }else{
 //            counter--;

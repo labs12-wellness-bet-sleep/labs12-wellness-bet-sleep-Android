@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-    <activity android:name=".SignUp.bottomNavigatoinActivity"></activity>
-    <activity android:name=".SignUp.addPhoto" />
+    <activity android:name=".SignUp.BottomNavigationActivity"></activity>
+    <activity android:name=".SignUp.AddPhotoActivity" />
     <activity android:name=".SignUp.CreateAccount" />
     <activity android:name=".SignUp.LogInActivity">
         <intent-filter>

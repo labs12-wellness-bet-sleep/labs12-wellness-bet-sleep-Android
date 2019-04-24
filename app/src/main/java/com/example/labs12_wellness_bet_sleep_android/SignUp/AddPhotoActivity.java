@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.example.labs12_wellness_bet_sleep_android.R;
 
-public class addPhoto extends AppCompatActivity {
+public class AddPhotoActivity extends AppCompatActivity {
     private static  final int RESULT_LOAD_IMAGE =1;
     ImageView imageToUpload;
     CardView cardViewUploadPhoto;
@@ -19,7 +19,7 @@ public class addPhoto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_photo);
+        setContentView(R.layout.activity_add_photo);
 
         imageToUpload = (ImageView) findViewById(R.id.upload_photo);
         cardViewUploadPhoto =(CardView) findViewById(R.id.cardView_add_photo);
@@ -43,7 +43,7 @@ public class addPhoto extends AppCompatActivity {
 
          /**   @Override
             protected void onActivityResult(int requestCode, int resultCode, Intent data){
-                addPhoto.super.onActivityResult(requestCode, resultCode, data);
+                AddPhotoActivity.super.onActivityResult(requestCode, resultCode, data);
             } **/
         });
     }
