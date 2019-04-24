@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-    <activity android:name=".singup.bottomNavigatoinActivity"></activity>
-    <activity android:name=".singup.addPhoto" />
-    <activity android:name=".singup.CreateAccount" />
-    <activity android:name=".singup.MainActivity">
+    <activity android:name=".SignUp.bottomNavigatoinActivity"></activity>
+    <activity android:name=".SignUp.addPhoto" />
+    <activity android:name=".SignUp.CreateAccount" />
+    <activity android:name=".SignUp.LogInActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
