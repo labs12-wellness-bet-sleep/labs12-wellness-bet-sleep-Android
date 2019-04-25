@@ -14,7 +14,7 @@ public class User {
 
     public User(JSONObject json){
         try {
-            this.username = json.getString("full_name");
+            this.username = json.getString("username");
         } catch (JSONException e) {
             e.printStackTrace();
         }
