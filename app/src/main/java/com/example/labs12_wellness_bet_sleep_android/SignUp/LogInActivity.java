@@ -85,3 +85,20 @@ public class LogInActivity extends AppCompatActivity {
     }
 
 }
+
+//
+//    private void validate(String username, String userPassword){
+//        if((username.equals("Admin")) && (userPassword.equals("1234"))) {
+//            Intent intent = new Intent(LogInActivity.this, BottomNavigationActivity.class);
+//            startActivity(intent);
+//        }else{
+//            counter--;
+//
+//            if (counter == 0){
+//                loginButton.setEnabled(false);
+//            }
+//
+//        }
+//
+//    }
+}

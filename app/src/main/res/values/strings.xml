@@ -10,4 +10,8 @@
     <string name="continue_str">Continue</string>
     <string name="terms_and_conditions">Terms and Conditions</string>
     <string name="login">Login</string>
+    <string name="home">Home</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="finish">Finish</string>
+    <string name="todo">TODO</string>
 </resources>
