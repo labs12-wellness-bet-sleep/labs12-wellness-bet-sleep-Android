@@ -59,7 +59,7 @@
         android:hint="@string/email_address"
         android:layout_centerHorizontal="true"
         android:inputType="textEmailAddress"
-        android:textSize="16sp"
+        android:textSize="16dp"
         android:autofillHints="" />
 
 
@@ -75,7 +75,7 @@
         android:textSize="16sp"
         android:background="#11000000"
         android:inputType="textPassword"
-        android:hint="@string/Password_ca"
+        android:hint="@string/Password"
         android:autofillHints="" />
 
     <android.support.v7.widget.CardView

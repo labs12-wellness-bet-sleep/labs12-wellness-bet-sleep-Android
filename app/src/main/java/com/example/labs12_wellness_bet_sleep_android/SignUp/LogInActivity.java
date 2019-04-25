@@ -80,68 +80,68 @@ public class LogInActivity extends AppCompatActivity {
                     return;
                 } else {
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String auth = Base64.encodeToString(CLIENT_ID_SECRET.getBytes(), Base64.DEFAULT);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String auth = Base64.encodeToString(CLIENT_ID_SECRET.getBytes(), Base64.DEFAULT);
 
-                        Map<String, String> headerProperties = new HashMap<>();
-                        headerProperties.put("Authorization", "Basic " + auth);
+                            Map<String, String> headerProperties = new HashMap<>();
+                            headerProperties.put("Authorization", "Basic " + auth);
 
-                        String tokenUrl= BASE_URL + "/oauth/token?grant_type=password&username="
-                                +name.getText().toString()+"&password="
-                                +password.getText().toString()+"&scope=";
+                            String tokenUrl= BASE_URL + "/oauth/token?grant_type=password&username="
+                                    +name.getText().toString()+"&password="
+                                    +password.getText().toString()+"&scope=";
 
-                        String tokenRequest = null;
-                        try {
-                            tokenRequest = NetworkAdapter.httpRequest(
-                                    tokenUrl, "POST", null, headerProperties);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                        Log.i(TAG, tokenRequest);
-                        try {
-                            String token = new JSONObject(tokenRequest).getString("access_token");
-
-                            headerProperties.clear();
-                            headerProperties.put("Authorization", "Bearer " + token);
+                            String tokenRequest = null;
                             try {
-                                String result = null;
+                                tokenRequest = NetworkAdapter.httpRequest(
+                                        tokenUrl, "POST", null, headerProperties);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            Log.i(TAG, tokenRequest);
+                            try {
+                                String token = new JSONObject(tokenRequest).getString("access_token");
+
+                                headerProperties.clear();
+                                headerProperties.put("Authorization", "Bearer " + token);
                                 try {
-                                    result = NetworkAdapter.httpRequest(USER_URL, "GET", null, headerProperties);
-                                } catch (IOException e) {
+                                    String result = null;
+                                    try {
+                                        result = NetworkAdapter.httpRequest(USER_URL, "GET", null, headerProperties);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                    JSONArray dataJsonArray = new JSONArray(result);
+
+                                    for (int i = 0; i < dataJsonArray.length(); ++i) {
+                                        User user = new User(dataJsonArray.getJSONObject(i));
+                                        data.add(user);
+                                    }
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            for(int i = 0; i < data.size(); i++) {
+                                                TextView textView = new TextView(context);
+                                                final User getUsers = data.get(i);
+
+
+                                                textView.setText(getUsers.getUsername());
+                                                textView.setTextSize(20);
+                                                parentLayout.addView(textView);
+                                            }
+                                        }
+                                    });
+                                } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-                                JSONArray dataJsonArray = new JSONArray(result);
-
-                                for (int i = 0; i < dataJsonArray.length(); ++i) {
-                                    User user = new User(dataJsonArray.getJSONObject(i));
-                                    data.add(user);
-                                }
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        for(int i = 0; i < data.size(); i++) {
-                                            TextView textView = new TextView(context);
-                                            final User getUsers = data.get(i);
-
-
-                                            textView.setText(getUsers.getUsername());
-                                            textView.setTextSize(20);
-                                            parentLayout.addView(textView);
-                                        }
-                                    }
-                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
-                    }
-                }).start();
-            }
+                    }).start();
+                }
             }
         });
     }
