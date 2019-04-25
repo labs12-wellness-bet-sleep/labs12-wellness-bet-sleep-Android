@@ -48,7 +48,7 @@
         />
 
     <EditText
-        android:id="@+id/email_text"
+        android:id="@+id/email_text_ca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name_text_ca"
