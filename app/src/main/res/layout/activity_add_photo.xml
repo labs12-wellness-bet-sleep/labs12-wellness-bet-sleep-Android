@@ -16,8 +16,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="131dp"
-        android:contentDescription="@string/logo"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textview_ca_add_photo"
@@ -28,7 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="-61dp"
-        android:text="Upload Photo"
+        android:text="@string/upload_photo"
         android:textColor="#fff"
         android:textSize="30sp" />
 
@@ -41,7 +41,7 @@
         android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
 
-        />
+        android:contentDescription="@string/todo" />
 
 
 
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Finish"
+                android:text="@string/finish"
                 android:textColor="#3F51B5"
                 android:textSize="24sp" />
         </RelativeLayout>
@@ -80,7 +80,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="-40dp"
         android:layout_centerHorizontal="true"
-        android:text="Terms and Conditions"
+        android:text="@string/terms_and_conditions"
         android:textColor="@android:color/white" />
 
 
