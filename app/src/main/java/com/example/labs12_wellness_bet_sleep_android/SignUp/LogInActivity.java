@@ -41,6 +41,8 @@ public class LogInActivity extends AppCompatActivity {
     private Context context;
     private RelativeLayout parentLayout;
 
+    final ArrayList<User> data = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +65,6 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
-        final ArrayList<User> data = new ArrayList<>();
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,88 +79,75 @@ public class LogInActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Please enter user name.",Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String auth = Base64.encodeToString(CLIENT_ID_SECRET.getBytes(), Base64.DEFAULT);
-
-                        Map<String, String> headerProperties = new HashMap<>();
-                        headerProperties.put("Authorization", "Basic " + auth);
-
-                        String tokenUrl= BASE_URL + "/oauth/token?grant_type=password&username="
-                                +name.getText().toString()+"&password="
-                                +password.getText().toString()+"&scope=";
-
-                        String tokenRequest = null;
-                        try {
-                            tokenRequest = NetworkAdapter.httpRequest(
-                                    tokenUrl, "POST", null, headerProperties);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                        Log.i(TAG, tokenRequest);
-                        try {
-                            String token = new JSONObject(tokenRequest).getString("access_token");
-
-                            headerProperties.clear();
-                            headerProperties.put("Authorization", "Bearer " + token);
-                            try {
-                                String result = null;
-                                try {
-                                    result = NetworkAdapter.httpRequest(USER_URL, "GET", null, headerProperties);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                JSONArray dataJsonArray = new JSONArray(result);
-
-                                for (int i = 0; i < dataJsonArray.length(); ++i) {
-                                    User user = new User(dataJsonArray.getJSONObject(i));
-                                    data.add(user);
-                                }
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        for(int i = 0; i < data.size(); i++) {
-                                            TextView textView = new TextView(context);
-                                            final User getUsers = data.get(i);
-
-
-                                            textView.setText(getUsers.getUsername());
-                                            textView.setTextSize(20);
-                                            parentLayout.addView(textView);
-                                        }
-                                    }
-                                });
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
-            }
+                    oauthLogin();
+                }
             }
         });
     }
 
+    public void oauthLogin() {
 
-//
-//    private void validate(String username, String userPassword){
-//        if((username.equals("Admin")) && (userPassword.equals("1234"))) {
-//            Intent intent = new Intent(LogInActivity.this, BottomNavigationActivity.class);
-//            startActivity(intent);
-//        }else{
-//            counter--;
-//
-//            if (counter == 0){
-//                loginButton.setEnabled(false);
-//            }
-//
-//        }
-//
-//    }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String auth = Base64.encodeToString(CLIENT_ID_SECRET.getBytes(), Base64.DEFAULT);
+
+                Map<String, String> headerProperties = new HashMap<>();
+                headerProperties.put("Authorization", "Basic " + auth);
+
+                String tokenUrl= BASE_URL + "/oauth/token?grant_type=password&username="
+                        +name.getText().toString()+"&password="
+                        +password.getText().toString()+"&scope=";
+
+                String tokenRequest = null;
+                try {
+                    tokenRequest = NetworkAdapter.httpRequest(
+                            tokenUrl, "POST", null, headerProperties);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Log.i(TAG, tokenRequest);
+                try {
+                    String token = new JSONObject(tokenRequest).getString("access_token");
+
+                    headerProperties.clear();
+                    headerProperties.put("Authorization", "Bearer " + token);
+                    try {
+                        String result = null;
+                        try {
+                            result = NetworkAdapter.httpRequest(USER_URL, "GET", null, headerProperties);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        JSONArray dataJsonArray = new JSONArray(result);
+
+                        for (int i = 0; i < dataJsonArray.length(); ++i) {
+                            User user = new User(dataJsonArray.getJSONObject(i));
+                            data.add(user);
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                for(int i = 0; i < data.size(); i++) {
+                                    TextView textView = new TextView(context);
+                                    final User getUsers = data.get(i);
+
+
+                                    textView.setText(getUsers.getUsername());
+                                    textView.setTextSize(20);
+                                    parentLayout.addView(textView);
+                                }
+                            }
+                        });
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 
 }
