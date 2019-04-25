@@ -1,20 +1,17 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">Sleep Bet</string>
     <string name="logo">Logo</string>
     <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="register_here">Register Here</string>
+    <string name="forgot_password">/Forgot Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="email_address">E-mail Address</string>
+    <string name="continue_str">Continue</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
     <string name="login">Login</string>
-    <string name="Register_here">Register Here</string>
-    <string name="forgotpassword">/ Forgot Password</string>
-    <string name="username">User name</string>
     <string name="home">Home</string>
     <string name="upload_photo">Upload Photo</string>
     <string name="finish">Finish</string>
     <string name="todo">TODO</string>
-    <string name="create_account">Create Account</string>
-    <string name="email_address">email address</string>
-    <string name="Next">Continue</string>
-    <string name="terms_and_conditions">Terms and Conditions</string>
-    <string name="User_name">user name</string>
-    <string name="Password">password</string>
-    <string name="Password_ca">password</string>
 </resources>

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.labs12_wellness_bet_sleep_android.Models.User;
 import com.example.labs12_wellness_bet_sleep_android.Network.NetworkAdapter;
+import com.example.labs12_wellness_bet_sleep_android.Network.UserDao;
 import com.example.labs12_wellness_bet_sleep_android.R;
 
 import org.json.JSONArray;
@@ -29,30 +30,30 @@ import java.util.Map;
 
 public class LogInActivity extends AppCompatActivity {
 
-    public static final String BASE_URL = "whateverurl";
-    public static final String USER_URL = BASE_URL + "/user";
     public static final String TAG = "LoginTag";
-    public static final String CLIENT_ID = "lambda-client";
-    public static final String CLIENT_SECRET = "lambda-secret";
-    public static final String CLIENT_ID_SECRET = CLIENT_ID + ":" + CLIENT_SECRET;
 
-    private  EditText name, password;
+    private  EditText usernameText, passwordText;
     private int counter = 5;
     private Context context;
     private RelativeLayout parentLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        name = findViewById(R.id.name_text);
-        password=  findViewById(R.id.password_text);
+        usernameText = findViewById(R.id.name_text);
+        passwordText=  findViewById(R.id.password_text);
         parentLayout = findViewById(R.id.parent_layout);
         CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
 
         context = this;
+
+        final String username = usernameText.getText().toString();
+        final String password = passwordText.getText().toString();
+
 
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,89 +64,27 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
-        final ArrayList<User> data = new ArrayList<>();
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (name.getText().toString().matches("") && password.getText().toString().matches("")) {
+                if (username.matches("") && password.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter User name and password.",Toast.LENGTH_SHORT).show();
                     return;
-                } else if (password.getText().toString().matches("")) {
+                } else if (password.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter password.",Toast.LENGTH_SHORT).show();
                     return;
-                } else if (name.getText().toString().matches("")) {
+                } else if (username.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter user name.",Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            String auth = Base64.encodeToString(CLIENT_ID_SECRET.getBytes(), Base64.DEFAULT);
-
-                            Map<String, String> headerProperties = new HashMap<>();
-                            headerProperties.put("Authorization", "Basic " + auth);
-
-                            String tokenUrl= BASE_URL + "/oauth/token?grant_type=password&username="
-                                    +name.getText().toString()+"&password="
-                                    +password.getText().toString()+"&scope=";
-
-                            String tokenRequest = null;
-                            try {
-                                tokenRequest = NetworkAdapter.httpRequest(
-                                        tokenUrl, "POST", null, headerProperties);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-                            Log.i(TAG, tokenRequest);
-                            try {
-                                String token = new JSONObject(tokenRequest).getString("access_token");
-
-                                headerProperties.clear();
-                                headerProperties.put("Authorization", "Bearer " + token);
-                                try {
-                                    String result = null;
-                                    try {
-                                        result = NetworkAdapter.httpRequest(USER_URL, "GET", null, headerProperties);
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                    JSONArray dataJsonArray = new JSONArray(result);
-
-                                    for (int i = 0; i < dataJsonArray.length(); ++i) {
-                                        User user = new User(dataJsonArray.getJSONObject(i));
-                                        data.add(user);
-                                    }
-                                    runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            for(int i = 0; i < data.size(); i++) {
-                                                TextView textView = new TextView(context);
-                                                final User getUsers = data.get(i);
-
-
-                                                textView.setText(getUsers.getUsername());
-                                                textView.setTextSize(20);
-                                                parentLayout.addView(textView);
-                                            }
-                                        }
-                                    });
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }).start();
+                    UserDao.logIn(username, password);
                 }
             }
         });
     }
 
+}
 
 //
 //    private void validate(String username, String userPassword){
@@ -162,5 +101,4 @@ public class LogInActivity extends AppCompatActivity {
 //        }
 //
 //    }
-
 }
