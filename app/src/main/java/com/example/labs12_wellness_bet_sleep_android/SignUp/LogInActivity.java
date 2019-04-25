@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.labs12_wellness_bet_sleep_android.Models.User;
@@ -31,6 +32,9 @@ public class LogInActivity extends AppCompatActivity {
     public static final String BASE_URL = "whateverurl";
     public static final String USER_URL = BASE_URL + "/user";
     public static final String TAG = "LoginTag";
+    public static final String CLIENT_ID = "lambda-client";
+    public static final String CLIENT_SECRET = "lambda-secret";
+    public static final String CLIENT_ID_SECRET = CLIENT_ID + ":" + CLIENT_SECRET;
 
     private  EditText name, password;
     private int counter = 5;
@@ -64,10 +68,22 @@ public class LogInActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (name.getText().toString().matches("") && password.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(),"Please enter User name and password.",Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (password.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(),"Please enter password.",Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (name.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(),"Please enter user name.",Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        String auth = Base64.encodeToString("lambda-client:lambda-secret".getBytes(), Base64.DEFAULT);
+                        String auth = Base64.encodeToString(CLIENT_ID_SECRET.getBytes(), Base64.DEFAULT);
 
                         Map<String, String> headerProperties = new HashMap<>();
                         headerProperties.put("Authorization", "Basic " + auth);
@@ -126,8 +142,11 @@ public class LogInActivity extends AppCompatActivity {
                     }
                 }).start();
             }
+            }
         });
     }
+
+
 //
 //    private void validate(String username, String userPassword){
 //        if((username.equals("Admin")) && (userPassword.equals("1234"))) {
@@ -143,4 +162,5 @@ public class LogInActivity extends AppCompatActivity {
 //        }
 //
 //    }
+
 }

@@ -36,7 +36,6 @@ tools:context=".SignUp.LogInActivity">
     android:drawableLeft="@drawable/ic_person_black_24dp"
     android:background="#11000000"
     android:inputType="textPersonName"
-    android:hint="@string/user_name"
     />
 
 <EditText
@@ -51,7 +50,7 @@ tools:context=".SignUp.LogInActivity">
     android:textSize="16sp"
     android:background="#11000000"
     android:inputType="textPassword"
-    android:hint="@string/password"
+
     />
 
 <android.support.v7.widget.CardView
