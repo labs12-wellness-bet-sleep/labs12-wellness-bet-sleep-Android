@@ -26,10 +26,6 @@ public class UserDao {
         headerProperties = new HashMap<>();
         headerProperties.put("Authorization", "Basic " + auth);
 
-                /*String tokenRequest = NetworkAdapter.httpRequest(
-                        "http://192.168.1.14:2019/oauth/token?grant_type=password&username=sally&password=password&scope=",
-                        "POST", null, headerProperties);*/
-
 
         String tokenRequest = null;
         try {
