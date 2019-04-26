@@ -49,7 +49,7 @@
         android:ems="10"
         android:drawableLeft="@drawable/ic_lock_black_24dp"
         android:textSize="16sp"
-        android:hint="@string/Password"
+        android:hint="@string/password"
         android:background="#11000000"
         android:inputType="textPassword"
 
@@ -92,7 +92,7 @@
         android:layout_marginStart="101dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="-40dp"
-        android:text="@string/Register_here"
+        android:text="@string/register_here"
         android:textColor="@android:color/white" />
 
     <TextView
@@ -104,7 +104,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="-40dp"
         android:layout_toRightOf="@+id/textView_register"
-        android:text="@string/forgotpassword"
+        android:text="@string/forgot_password"
         android:textColor="@android:color/white" />
 
 

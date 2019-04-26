@@ -58,7 +58,7 @@ public class CreateAccount extends AppCompatActivity {
                     public void run() {
                         JSONObject userdata = new JSONObject();
                         try {
-                            userdata.put("full_name", nameText.getText().toString());
+                            userdata.put("username", nameText.getText().toString());
                             userdata.put("password", passwordText.getText().toString());
                             userdata.put("email", emailText.getText().toString());
                         } catch (JSONException e) {
@@ -67,7 +67,7 @@ public class CreateAccount extends AppCompatActivity {
                         String tokenRequest = null;
                         try {
                             tokenRequest = NetworkAdapter.httpRequest(
-                                    "http://10.0.2.2:1932/product",
+                                    "https://sleep-bet.herokuapp.com/auth/register",
                                     "POST", userdata, null);
                         } catch (IOException e) {
                             e.printStackTrace();
