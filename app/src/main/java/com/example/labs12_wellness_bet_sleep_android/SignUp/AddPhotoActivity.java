@@ -80,14 +80,59 @@ public class AddPhotoActivity extends AppCompatActivity {
         {
            CropImage.ActivityResult result = CropImage.getActivityResult(data);
 
-           if(requestCode== RESULT_OK)
+           if(resultCode== RESULT_OK)
            {
+
+               loadingBar.setTitle("Profile Image");
+               loadingBar.setMessage("Please wait, while we updating your profile image...");
+               loadingBar.show();
+               loadingBar.setCanceledOnTouchOutside(true);
+
                Uri resultUri = result.getUri();
 
                StorageReference filePath = UserProfileImageRef.child(currentUserID+".jpg");
 
                //saving the image inside of the firebase
-               filePath.putFile(resultUri);
+               filePath.putFile(resultUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                   @Override
+                   public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task)
+                   {
+                       if(task.isSuccessful())
+                       {
+                           Toast.makeText(AddPhotoActivity.this, "Profile Image Stored Successfully to Storage...", Toast.LENGTH_SHORT).show();
+
+                           final String downloadUrl = task.getResult().getDownloadUrl().toString();
+
+                           UsersRef.child("profileImage").setValue(downloadUrl)
+                                   .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                       @Override
+                                       public void onComplete(@NonNull Task<Void> task)
+                                       {
+                                           if(task.isSuccessful())
+                                           {
+                                               Intent selfIntent = new Intent(AddPhotoActivity.this, AddPhotoActivity.class);
+                                               startActivity(selfIntent);
+
+                                               Toast.makeText(AddPhotoActivity.this, "Profile Image Stored Successfully to Storage...", Toast.LENGTH_SHORT).show();
+                                               loadingBar.dismiss();
+                                           }
+                                           else
+                                           {
+                                               String messege = task.getException().getMessage();
+                                               Toast.makeText(AddPhotoActivity.this, "Error:" +messege, Toast.LENGTH_SHORT).show();
+                                               loadingBar.dismiss();
+                                           }
+
+                                       }
+                                   });
+                       }
+
+                   }
+               });
+           }
+           else{
+               Toast.makeText(this, "Error: Image can't be cropped. Try again.", Toast.LENGTH_SHORT).show();
+               loadingBar.dismiss();
            }
         }
 
