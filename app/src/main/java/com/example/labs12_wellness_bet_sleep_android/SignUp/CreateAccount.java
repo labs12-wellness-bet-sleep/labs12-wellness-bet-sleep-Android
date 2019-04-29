@@ -1,9 +1,9 @@
 package com.example.labs12_wellness_bet_sleep_android.SignUp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
+import androidx.cardview.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -17,13 +17,15 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-public class CreateAccount extends AppCompatActivity {
+public class
+CreateAccount extends AppCompatActivity {
     
     public static final String TAG = "CreateAccountTag";
 
     TextView login, termOfS;
     EditText nameText, emailText, passwordText;
     CardView signupButton;
+
 
 
     @Override
@@ -39,6 +41,9 @@ public class CreateAccount extends AppCompatActivity {
         emailText = findViewById(R.id.email_text_ca);
 
         signupButton = findViewById(R.id.cardView_signup);
+
+
+
 
 
         login.setOnClickListener(new View.OnClickListener() {
