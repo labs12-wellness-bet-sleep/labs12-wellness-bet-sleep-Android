@@ -76,14 +76,14 @@ public class AddPhotoActivity extends AppCompatActivity {
                     .start(this);
         }
 
-        // Cuando se pulsa en el crop button
+       
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
 
             if (resultCode == RESULT_OK) {
 
-                loadingBar.setTitle("Imagen de perfil");
-                loadingBar.setMessage("Por favor espera mientras actualizamos tu imagen de perfil...");
+                loadingBar.setTitle("Profile Picture");
+                loadingBar.setMessage("Please wait and try again");
                 loadingBar.show();
                 loadingBar.setCanceledOnTouchOutside(true);
 
@@ -96,7 +96,7 @@ public class AddPhotoActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                         if (task.isSuccessful()) {
 
-                            Toast.makeText(AddPhotoActivity.this, "Imagen de perfil almacenada exitosamente en Firebase storage...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddPhotoActivity.this, "Image has been updated", Toast.LENGTH_SHORT).show();
 
                             Task<Uri> result = task.getResult().getMetadata().getReference().getDownloadUrl();
 
@@ -113,7 +113,7 @@ public class AddPhotoActivity extends AppCompatActivity {
                                                         Intent selfIntent = new Intent(AddPhotoActivity.this, AddPhotoActivity.class);
                                                         startActivity(selfIntent);
 
-                                                        Toast.makeText(AddPhotoActivity.this, "Imagen de perfil almacenada en Firebase Storage con éxito...", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(AddPhotoActivity.this, "Image has been updated", Toast.LENGTH_SHORT).show();
                                                         loadingBar.dismiss();
                                                     } else {
                                                         String message = task.getException().getMessage();
@@ -128,7 +128,7 @@ public class AddPhotoActivity extends AppCompatActivity {
                     }
                 });
             } else {
-                Toast.makeText(AddPhotoActivity.this, "Error: La imagen no se ha cortado bien. Prueba otra vez.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddPhotoActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 loadingBar.dismiss();
             }
         }
