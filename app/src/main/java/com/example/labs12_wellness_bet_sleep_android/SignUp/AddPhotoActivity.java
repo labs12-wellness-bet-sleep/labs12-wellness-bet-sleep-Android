@@ -14,6 +14,9 @@ public class AddPhotoActivity extends AppCompatActivity {
     private static  final int RESULT_LOAD_IMAGE =1;
     ImageView imageToUpload;
     CardView cardViewUploadPhoto;
+    ImageView ProfileImage;
+    final static int Gallery_Pick = 1;
+
 
 
     @Override
@@ -23,28 +26,17 @@ public class AddPhotoActivity extends AppCompatActivity {
 
         imageToUpload = (ImageView) findViewById(R.id.upload_photo);
         cardViewUploadPhoto =(CardView) findViewById(R.id.cardView_add_photo);
+        ProfileImage = (ImageView) findViewById(R.id.upload_photo);
 
-        imageToUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                switch(v.getId()){
-                    case R.id.upload_photo:
-
-                        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
-
-                        break;
-                    case R.id.cardView_add_photo:
-                        break;
-                }
-
-            }
-
-         /**   @Override
-            protected void onActivityResult(int requestCode, int resultCode, Intent data){
-                AddPhotoActivity.super.onActivityResult(requestCode, resultCode, data);
-            } **/
+        ProfileImage.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view)
+        {
+        Intent galleryIntent = new Intent();
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, Gallery_Pick);
+        }
         });
     }
 }
