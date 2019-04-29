@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.example.labs12_wellness_bet_sleep_android.R;
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.dashBoardFragment;
-import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.homeFragment;
+import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.HomeFragment;
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.roomsFragment;
 
 public class BottomNavigationActivity extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new homeFragment()).commit();
+                new HomeFragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -34,7 +34,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
 
                    switch (Item.getItemId()) {
                        case R.id.nav_home:
-                           selectedFragment = new homeFragment();
+                           selectedFragment = new HomeFragment();
                            break;
                        case R.id.nav_dashBoard:
                            selectedFragment = new dashBoardFragment();

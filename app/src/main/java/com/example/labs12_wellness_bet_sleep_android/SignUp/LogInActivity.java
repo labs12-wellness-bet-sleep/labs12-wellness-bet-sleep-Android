@@ -2,6 +2,7 @@ package com.example.labs12_wellness_bet_sleep_android.SignUp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -18,6 +19,7 @@ import com.example.labs12_wellness_bet_sleep_android.Models.User;
 import com.example.labs12_wellness_bet_sleep_android.Network.NetworkAdapter;
 import com.example.labs12_wellness_bet_sleep_android.Network.UserDao;
 import com.example.labs12_wellness_bet_sleep_android.R;
+import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.DrawerActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +35,7 @@ public class LogInActivity extends AppCompatActivity {
     public static final String TAG = "LoginTag";
 
     private  EditText usernameText, passwordText;
+    private TextView forgotPassword;
     private int counter = 5;
     private Context context;
     private RelativeLayout parentLayout;
@@ -48,6 +51,7 @@ public class LogInActivity extends AppCompatActivity {
         parentLayout = findViewById(R.id.parent_layout);
         CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
+        forgotPassword = findViewById(R.id.textView_forgot);
 
         context = this;
 
@@ -60,6 +64,15 @@ public class LogInActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent createAccountIntent = new Intent(LogInActivity.this, CreateAccount.class);
                 startActivity(createAccountIntent);
+
+            }
+        });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent drawerActivityIntent = new Intent(LogInActivity.this, DrawerActivity.class);
+                startActivity(drawerActivityIntent);
 
             }
         });
