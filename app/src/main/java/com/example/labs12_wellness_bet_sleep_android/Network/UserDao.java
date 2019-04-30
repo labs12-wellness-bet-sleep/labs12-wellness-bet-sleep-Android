@@ -19,7 +19,8 @@ public class UserDao {
 
     public static Map<String, String> headerProperties;
 
-    public static Map<String, String> logIn(String username, String password) {
+
+    public static Map<String, String> logInOauth(String username, String password) {
         String token = "";
         String auth = Base64.encodeToString("lambda-client:lambda-secret".getBytes(), Base64.DEFAULT);
 
@@ -48,7 +49,7 @@ public class UserDao {
 
             String result = null;
             try {
-                result = NetworkAdapter.httpRequest("http://192.168.1.14:2019/restaurants/all", "GET", null, headerProperties);
+                result = NetworkAdapter.httpRequest("https://sleep-bet.herokuapp.com/auth/login/", "GET", null, headerProperties);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -61,4 +62,13 @@ public class UserDao {
         return headerProperties;
     }
 
+    public static void logIn(String username, String password){
+        String result = null;
+        try {
+            result = NetworkAdapter.httpRequest("https://sleep-bet.herokuapp.com/auth/login/", "POST", null, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Log.i("Userlist", result);
+    }
 }

@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.cardview.widget.CardView;
-
+import android.support.v7.widget.CardView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -23,6 +26,7 @@ public class LogInActivity extends AppCompatActivity {
     private  EditText usernameText, passwordText;
     private int counter = 5;
     private Context context;
+    private String username, password;
     private RelativeLayout parentLayout;
 
 
@@ -34,13 +38,10 @@ public class LogInActivity extends AppCompatActivity {
         usernameText = findViewById(R.id.name_text);
         passwordText=  findViewById(R.id.password_text);
         parentLayout = findViewById(R.id.parent_layout);
-        CardView loginButton = findViewById(R.id.cardView);
+        final CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
 
         context = this;
-
-        final String username = usernameText.getText().toString();
-        final String password = passwordText.getText().toString();
 
 
         registerText.setOnClickListener(new View.OnClickListener() {
@@ -55,16 +56,15 @@ public class LogInActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                username = usernameText.getText().toString();
+                password = passwordText.getText().toString();
 
                 if (username.matches("") && password.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter User name and password.",Toast.LENGTH_SHORT).show();
-                    return;
                 } else if (password.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter password.",Toast.LENGTH_SHORT).show();
-                    return;
                 } else if (username.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter user name.",Toast.LENGTH_SHORT).show();
-                    return;
                 } else {
                     UserDao.logIn(username, password);
                 }
@@ -73,19 +73,3 @@ public class LogInActivity extends AppCompatActivity {
     }
 
 }
-
-//
-//    private void validate(String username, String userPassword){
-//        if((username.equals("Admin")) && (userPassword.equals("1234"))) {
-//            Intent intent = new Intent(LogInActivity.this, BottomNavigationActivity.class);
-//            startActivity(intent);
-//        }else{
-//            counter--;
-//
-//            if (counter == 0){
-//                loginButton.setEnabled(false);
-//            }
-//
-//        }
-//
-//    }

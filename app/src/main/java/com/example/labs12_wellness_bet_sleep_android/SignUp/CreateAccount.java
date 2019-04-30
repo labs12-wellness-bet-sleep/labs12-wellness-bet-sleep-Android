@@ -49,7 +49,8 @@ CreateAccount extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent MainActivityIntent = new Intent(CreateAccount.this, LogInActivity.class);
+                Intent MainActivityIntent = new Intent
+                        (CreateAccount.this, LogInActivity.class);
                 startActivity(MainActivityIntent);
 
             }
@@ -63,9 +64,12 @@ CreateAccount extends AppCompatActivity {
                     public void run() {
                         JSONObject userdata = new JSONObject();
                         try {
-                            userdata.put("username", nameText.getText().toString() + ",");
-                            userdata.put("password", passwordText.getText().toString()+ ",");
-                            userdata.put("email", emailText.getText().toString());
+                            userdata.put("username",
+                                    nameText.getText().toString() + ",");
+                            userdata.put("password",
+                                    passwordText.getText().toString()+ ",");
+                            userdata.put("email",
+                                        emailText.getText().toString());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
