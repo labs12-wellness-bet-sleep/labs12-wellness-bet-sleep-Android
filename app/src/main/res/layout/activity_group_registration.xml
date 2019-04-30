@@ -30,7 +30,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_gr"
         android:layout_width="375dp"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:elevation="10dp"
@@ -71,7 +71,7 @@
 
 
             <EditText
-                android:id="@+id/text_data"
+                android:id="@+id/text_dataStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -83,6 +83,19 @@
                 android:ems="13"
                 android:hint="Start Date"
                 android:textSize="20sp" />
+            <EditText
+                android:id="@+id/text_dataEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/text_dataStart"
+                android:background="#11000000"
+                android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                android:ems="13"
+                android:hint="End Date"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/text_messageToG"
@@ -91,7 +104,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/text_data"
+                android:layout_below="@+id/text_dataEnd"
                 android:background="#11000000"
                 android:drawableLeft="@drawable/ic_message_black_24dp"
                 android:ems="13"
@@ -104,7 +117,7 @@
                 android:layout_height="50dp"
                 android:layout_below="@id/text_messageToG"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="50dp"
                 android:background="@color/colorAccent"
                 app:cardBackgroundColor="#FF4584"
                 app:cardCornerRadius="25dp"
