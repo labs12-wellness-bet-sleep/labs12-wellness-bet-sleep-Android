@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/softerViolet"
+    tools:context=".innerActivity.groupRegistration">
+
+
+    <View
+        android:id="@+id/background_png_gr"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@drawable/background"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group Registration"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textStyle="bold"
+
+        />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_gr"
+        android:layout_width="375dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/text_groupName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+
+            android:background="#11000000"
+            android:drawableLeft="@drawable/ic_peoples_black_24dp"
+            android:ems="13"
+            android:hint="Group Name"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/text_buyAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/text_groupName"
+            android:background="#11000000"
+            android:drawableLeft="@drawable/ic_attach_money_black_24dp"
+            android:ems="13"
+            android:hint="Buy in Amount"
+            android:textSize="20sp" />
+
+
+
+            <EditText
+                android:id="@+id/text_dataStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/text_buyAmount"
+                android:background="#11000000"
+                android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                android:ems="13"
+                android:hint="Start Date"
+                android:textSize="20sp" />
+            <EditText
+                android:id="@+id/text_dataEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/text_dataStart"
+                android:background="#11000000"
+                android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                android:ems="13"
+                android:hint="End Date"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/text_messageToG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/text_dataEnd"
+                android:background="#11000000"
+                android:drawableLeft="@drawable/ic_message_black_24dp"
+                android:ems="13"
+                android:hint="Message to Group"
+                android:textSize="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CreateGroup_button"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/text_messageToG"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@color/colorAccent"
+                app:cardBackgroundColor="#FF4584"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/createGroup_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Create New Group"
+                    android:textColor="#3F51B5"
+                    android:textSize="24sp" />
+             </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
