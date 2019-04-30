@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragmentsNav.DrawerActivity"></activity>
+        <activity android:name=".fragmentsNav.DrawerActivity" />
         <activity android:name=".SignUp.BottomNavigationActivity" />
         <activity android:name=".SignUp.AddPhotoActivity" />
         <activity android:name=".SignUp.CreateAccount" />

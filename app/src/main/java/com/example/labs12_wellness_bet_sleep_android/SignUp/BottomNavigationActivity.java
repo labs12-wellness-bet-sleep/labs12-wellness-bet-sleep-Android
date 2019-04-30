@@ -14,6 +14,9 @@ import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.roomsFragment;
 
 public class BottomNavigationActivity extends AppCompatActivity {
 
+    // Charles: Had to temporarily remove bottom navigation code to get navigation drawer working.
+        // Will try to implement it later on
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

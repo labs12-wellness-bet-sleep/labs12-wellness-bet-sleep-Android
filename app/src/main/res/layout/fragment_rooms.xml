@@ -22,12 +22,7 @@ tools:context=".fragmentsNav.roomsFragment">
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:textStyle="bold"
-
         />
-
-
-
-
 
           <android.support.v7.widget.CardView
               android:id="@+id/cardView_menu"
