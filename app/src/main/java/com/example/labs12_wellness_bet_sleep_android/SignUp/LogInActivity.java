@@ -3,8 +3,10 @@ package com.example.labs12_wellness_bet_sleep_android.SignUp;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
+//import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.labs12_wellness_bet_sleep_android.Network.UserDao;
 import com.example.labs12_wellness_bet_sleep_android.R;
+import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.ManageGroups;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -28,7 +31,7 @@ public class LogInActivity extends AppCompatActivity {
     private Context context;
     private String username, password;
     private RelativeLayout parentLayout;
-
+    private TextView forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class LogInActivity extends AppCompatActivity {
         parentLayout = findViewById(R.id.parent_layout);
         final CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
-
+        forgotPassword = findViewById(R.id.textView_forgot);
         context = this;
 
 
@@ -48,6 +51,15 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createAccountIntent = new Intent(LogInActivity.this, CreateAccount.class);
+                startActivity(createAccountIntent);
+
+            }
+        });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createAccountIntent = new Intent(LogInActivity.this, ManageGroups.class);
                 startActivity(createAccountIntent);
 
             }
