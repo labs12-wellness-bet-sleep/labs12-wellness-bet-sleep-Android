@@ -84,7 +84,7 @@ CreateAccount extends AppCompatActivity {
                             userdata.put("password",
                                     passwordText.getText().toString() + ",");
                             userdata.put("email",
-                                          emailText.getText().toString());
+                                    emailText.getText().toString());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
