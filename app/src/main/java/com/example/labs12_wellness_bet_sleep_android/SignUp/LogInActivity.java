@@ -15,7 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.labs12_wellness_bet_sleep_android.Network.UserDao;
 import com.example.labs12_wellness_bet_sleep_android.R;
-import com.example.labs12_wellness_bet_sleep_android.innerActivity.groupRegistration;
+
+import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.ManageGroups;
+import com.example.labs12_wellness_bet_sleep_android.innerActivity.GroupRegistrationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -102,7 +104,7 @@ public class LogInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Intent groupIntent = new Intent(LogInActivity.this, groupRegistration.class);
+                    Intent groupIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
                     startActivity(groupIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();

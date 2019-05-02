@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.labs12_wellness_bet_sleep_android.Network.NetworkAdapter;
 import com.example.labs12_wellness_bet_sleep_android.R;
-import com.example.labs12_wellness_bet_sleep_android.innerActivity.groupRegistration;
+import com.example.labs12_wellness_bet_sleep_android.innerActivity.GroupRegistrationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,7 +30,7 @@ CreateAccount extends AppCompatActivity {
 
     public static final String TAG = "CreateAccountTag";
 
-    private EditText nameText, emailText, passwordText;
+    private EditText usernameText, emailText, passwordText, fullnameText;
     private String username, password;
     private FirebaseAuth mAuth;
 
@@ -47,7 +47,8 @@ CreateAccount extends AppCompatActivity {
 
         CardView signupButton = findViewById(R.id.cardView_signup);
 
-        nameText = findViewById(R.id.name_text_ca);
+        usernameText = findViewById(R.id.name_text_ca);
+        fullnameText = findViewById(R.id.fullname_text_ca);
         passwordText = findViewById(R.id.password_text_ca);
         emailText = findViewById(R.id.email_text_ca);
 
@@ -66,7 +67,7 @@ CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                username = nameText.getText().toString();
+                username = usernameText.getText().toString();
                 password = passwordText.getText().toString();
 
                 CreateUser();
@@ -77,7 +78,9 @@ CreateAccount extends AppCompatActivity {
                         JSONObject userdata = new JSONObject();
                         try {
                             userdata.put("username",
-                                    nameText.getText().toString() + ",");
+                                    usernameText.getText().toString() + ",");
+                            userdata.put("fullName",
+                                    fullnameText.getText().toString() + ",");
                             userdata.put("password",
                                     passwordText.getText().toString() + ",");
                             userdata.put("email",
@@ -107,7 +110,7 @@ CreateAccount extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent groupIntent = new Intent(CreateAccount.this, groupRegistration.class);
+                    Intent groupIntent = new Intent(CreateAccount.this, GroupRegistrationActivity.class);
                     startActivity(groupIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
