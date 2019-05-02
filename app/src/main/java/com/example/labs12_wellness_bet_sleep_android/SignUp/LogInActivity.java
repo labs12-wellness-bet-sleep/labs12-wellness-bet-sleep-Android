@@ -2,25 +2,25 @@ package com.example.labs12_wellness_bet_sleep_android.SignUp;
 
 import android.content.Context;
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import android.os.Bundle;
-//import android.support.v7.widget.CardView;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import com.example.labs12_wellness_bet_sleep_android.Network.UserDao;
 import com.example.labs12_wellness_bet_sleep_android.R;
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.ManageGroups;
+import com.example.labs12_wellness_bet_sleep_android.innerActivity.GroupRegistrationActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -28,23 +28,34 @@ public class LogInActivity extends AppCompatActivity {
 
     private  EditText usernameText, passwordText;
     private int counter = 5;
-    private Context context;
     private String username, password;
-    private RelativeLayout parentLayout;
     private TextView forgotPassword;
+  
+    private FirebaseAuth mAuth;
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mAuth = FirebaseAuth.getInstance();
+
         usernameText = findViewById(R.id.name_text);
         passwordText=  findViewById(R.id.password_text);
-        parentLayout = findViewById(R.id.parent_layout);
+        RelativeLayout parentLayout = findViewById(R.id.parent_layout);
         final CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
         forgotPassword = findViewById(R.id.textView_forgot);
-        context = this;
+      
+        Context context = this;
 
 
         registerText.setOnClickListener(new View.OnClickListener() {
@@ -78,10 +89,27 @@ public class LogInActivity extends AppCompatActivity {
                 } else if (username.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter user name.",Toast.LENGTH_SHORT).show();
                 } else {
-                    UserDao.logIn(username, password);
+                    LoginUser();
+                }
+            }
+        });
+
+    }
+
+    private void LoginUser() {
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Intent groupIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
+                    startActivity(groupIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
 
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/softerViolet"
-    tools:context=".innerActivity.groupRegistration">
+    tools:context=".innerActivity.GroupRegistrationActivity">
 
 
     <View
@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Group Registration"
+        android:text="@string/group_registration"
         android:textSize="30sp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
@@ -51,7 +51,7 @@
             android:background="#11000000"
             android:drawableLeft="@drawable/ic_peoples_black_24dp"
             android:ems="13"
-            android:hint="Group Name"
+            android:hint="@string/group_name"
             android:textSize="20sp" />
 
         <EditText
@@ -65,13 +65,13 @@
             android:background="#11000000"
             android:drawableLeft="@drawable/ic_attach_money_black_24dp"
             android:ems="13"
-            android:hint="Buy in Amount"
+            android:hint="@string/buy_in_amount"
             android:textSize="20sp" />
 
 
 
             <EditText
-                android:id="@+id/text_dataStart"
+                android:id="@+id/text_dateStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -81,20 +81,20 @@
                 android:background="#11000000"
                 android:drawableLeft="@drawable/ic_date_range_black_24dp"
                 android:ems="13"
-                android:hint="Start Date"
+                android:hint="@string/start_date"
                 android:textSize="20sp" />
             <EditText
-                android:id="@+id/text_dataEnd"
+                android:id="@+id/text_dateEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/text_dataStart"
+                android:layout_below="@+id/text_dateStart"
                 android:background="#11000000"
                 android:drawableLeft="@drawable/ic_date_range_black_24dp"
                 android:ems="13"
-                android:hint="End Date"
+                android:hint="@string/end_date"
                 android:textSize="20sp" />
 
             <EditText
@@ -104,11 +104,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/text_dataEnd"
+                android:layout_below="@+id/text_dateEnd"
                 android:background="#11000000"
                 android:drawableLeft="@drawable/ic_message_black_24dp"
                 android:ems="13"
-                android:hint="Message to Group"
+                android:hint="@string/message_to_group"
                 android:textSize="20sp" />
 
             <androidx.cardview.widget.CardView
@@ -132,7 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Create New Group"
+                    android:text="@string/create_new_group"
                     android:textColor="#3F51B5"
                     android:textSize="24sp" />
              </RelativeLayout>

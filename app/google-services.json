@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "518764607202-3qlnet8jrc9n0de1o1nh7np1un6uj5fn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.labs12_wellness_bet_sleep_android",
+            "certificate_hash": "ee7f10ceacfb90913474bbe9e31bd0d70537e466"
+          }
+        },
+        {
           "client_id": "518764607202-ubo8t15i04jelq9daaqki1ve4s8g2eri.apps.googleusercontent.com",
           "client_type": 3
         }
