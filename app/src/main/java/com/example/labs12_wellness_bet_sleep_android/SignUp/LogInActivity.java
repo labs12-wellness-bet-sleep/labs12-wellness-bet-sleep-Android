@@ -77,11 +77,26 @@ public class LogInActivity extends AppCompatActivity {
                 } else if (username.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter user name.",Toast.LENGTH_SHORT).show();
                 } else {
-                    UserDao.logIn(username, password);
+                    LoginUser();
                 }
             }
         });
 
+    }
+
+    private void LoginUser() {
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Intent groupIntent = new Intent(LogInActivity.this, groupRegistration.class);
+                    startActivity(groupIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 
