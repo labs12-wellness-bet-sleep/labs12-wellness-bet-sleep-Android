@@ -1,3 +1,4 @@
+
 package com.example.labs12_wellness_bet_sleep_android.SignUp;
 
 import android.content.Context;
@@ -28,6 +29,8 @@ public class LogInActivity extends AppCompatActivity {
     private  EditText usernameText, passwordText;
     private int counter = 5;
     private String username, password;
+    private TextView forgotPassword;
+  
     private FirebaseAuth mAuth;
 
     @Override
@@ -37,7 +40,6 @@ public class LogInActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 //        updateUI(currentUser);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,8 @@ public class LogInActivity extends AppCompatActivity {
         RelativeLayout parentLayout = findViewById(R.id.parent_layout);
         final CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
-
+        forgotPassword = findViewById(R.id.textView_forgot);
+      
         Context context = this;
 
 
@@ -59,6 +62,15 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createAccountIntent = new Intent(LogInActivity.this, CreateAccount.class);
+                startActivity(createAccountIntent);
+
+            }
+        });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createAccountIntent = new Intent(LogInActivity.this, ManageGroups.class);
                 startActivity(createAccountIntent);
 
             }
@@ -77,11 +89,26 @@ public class LogInActivity extends AppCompatActivity {
                 } else if (username.matches("")) {
                     Toast.makeText(getApplicationContext(),"Please enter user name.",Toast.LENGTH_SHORT).show();
                 } else {
-                    UserDao.logIn(username, password);
+                    LoginUser();
                 }
             }
         });
 
+    }
+
+    private void LoginUser() {
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Intent groupIntent = new Intent(LogInActivity.this, groupRegistration.class);
+                    startActivity(groupIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 
