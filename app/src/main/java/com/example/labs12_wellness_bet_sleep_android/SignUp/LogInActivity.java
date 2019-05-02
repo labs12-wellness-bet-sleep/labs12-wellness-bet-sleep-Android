@@ -28,6 +28,8 @@ public class LogInActivity extends AppCompatActivity {
     private  EditText usernameText, passwordText;
     private int counter = 5;
     private String username, password;
+    private TextView forgotPassword;
+  
     private FirebaseAuth mAuth;
 
     @Override
@@ -37,7 +39,6 @@ public class LogInActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 //        updateUI(currentUser);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,8 @@ public class LogInActivity extends AppCompatActivity {
         RelativeLayout parentLayout = findViewById(R.id.parent_layout);
         final CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
-
+        forgotPassword = findViewById(R.id.textView_forgot);
+      
         Context context = this;
 
 
@@ -59,6 +61,15 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createAccountIntent = new Intent(LogInActivity.this, CreateAccount.class);
+                startActivity(createAccountIntent);
+
+            }
+        });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createAccountIntent = new Intent(LogInActivity.this, ManageGroups.class);
                 startActivity(createAccountIntent);
 
             }
