@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.labs12_wellness_bet_sleep_android.Network.NetworkAdapter;
 import com.example.labs12_wellness_bet_sleep_android.R;
-import com.example.labs12_wellness_bet_sleep_android.innerActivity.groupRegistration;
+import com.example.labs12_wellness_bet_sleep_android.innerActivity.GroupRegistrationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -110,7 +110,7 @@ CreateAccount extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent groupIntent = new Intent(CreateAccount.this, groupRegistration.class);
+                    Intent groupIntent = new Intent(CreateAccount.this, GroupRegistrationActivity.class);
                     startActivity(groupIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();

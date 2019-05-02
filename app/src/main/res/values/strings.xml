@@ -15,4 +15,11 @@
     <string name="finish">Finish</string>
     <string name="todo">TODO</string>
     <string name="full_name">Full Name</string>
+    <string name="create_new_group">Create New Group</string>
+    <string name="message_to_group">Message to Group</string>
+    <string name="end_date">End Date</string>
+    <string name="start_date">Start Date</string>
+    <string name="buy_in_amount">Buy in Amount</string>
+    <string name="group_name">Group Name</string>
+    <string name="group_registration">Group Registration</string>
 </resources>
