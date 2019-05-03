@@ -43,15 +43,15 @@ public class GroupRegistrationActivity extends AppCompatActivity {
                     public void run() {
                         JSONObject userdata = new JSONObject();
                         try {
-                            userdata.put("group_name",
+                            userdata.put("groupName",
                                     groupName.getText().toString() + ",");
-                            userdata.put("buy_in_amount",
+                            userdata.put("buyInAmt",
                                     buyAmount.getText().toString() + ",");
-                            userdata.put("start_date",
+                            userdata.put("startDate",
                                     startDate.getText().toString() + ",");
-                            userdata.put("end_date",
+                            userdata.put("endDate",
                                     endDate.getText().toString() + ",");
-                            userdata.put("group_message",
+                            userdata.put("groupMessage",
                                     groupMessage.getText().toString());
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -59,7 +59,7 @@ public class GroupRegistrationActivity extends AppCompatActivity {
                         String tokenRequest = null;
                         try {
                             tokenRequest = NetworkAdapter.httpRequest(
-                                    "https://sleep-bet.herokuapp.com/api/groups/",
+                                    "https://sleep-bet.herokuapp.com/api/groups/create",
                                     "POST", userdata, null);
                         } catch (IOException e) {
                             e.printStackTrace();

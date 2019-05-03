@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.sql.Timestamp;
 
 public class User {
-    private String password, username, email, role, photoUrl;
+    private String password, username, email, role, photoUrl, token;
 
     public User(){
 
@@ -78,5 +78,13 @@ public class User {
 
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

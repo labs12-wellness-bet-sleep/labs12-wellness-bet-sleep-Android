@@ -31,7 +31,7 @@ CreateAccount extends AppCompatActivity {
     public static final String TAG = "CreateAccountTag";
 
     private EditText usernameText, emailText, passwordText, fullnameText;
-    private String username, password;
+    private String username, password, email;
     private FirebaseAuth mAuth;
 
 
@@ -47,7 +47,7 @@ CreateAccount extends AppCompatActivity {
 
         CardView signupButton = findViewById(R.id.cardView_signup);
 
-        usernameText = findViewById(R.id.name_text_ca);
+        usernameText = findViewById(R.id.username_text_ca);
         fullnameText = findViewById(R.id.fullname_text_ca);
         passwordText = findViewById(R.id.password_text_ca);
         emailText = findViewById(R.id.email_text_ca);
@@ -69,8 +69,10 @@ CreateAccount extends AppCompatActivity {
 
                 username = usernameText.getText().toString();
                 password = passwordText.getText().toString();
+                email = emailText.getText().toString();
 
-                CreateUser();
+
+                CreateUser(email, password);
 
                 new Thread(new Runnable() {
                     @Override
@@ -84,14 +86,14 @@ CreateAccount extends AppCompatActivity {
                             userdata.put("password",
                                     passwordText.getText().toString() + ",");
                             userdata.put("email",
-                                    emailText.getText().toString());
+                                          emailText.getText().toString());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         String tokenRequest = null;
                         try {
                             tokenRequest = NetworkAdapter.httpRequest(
-                                    "https://sleep-bet.herokuapp.com/auth/register/",
+                                    "https://sleep-bet.herokuapp.com/api/users/register/",
                                     "POST", userdata, null);
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -105,14 +107,15 @@ CreateAccount extends AppCompatActivity {
 
     }
 
-    private void CreateUser() {
-        mAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    private void CreateUser(String emailFb, String passwordFb) {
+        mAuth.createUserWithEmailAndPassword(emailFb, passwordFb).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent groupIntent = new Intent(CreateAccount.this, GroupRegistrationActivity.class);
+                    Intent groupIntent = new Intent(CreateAccount.this, LogInActivity.class);
                     startActivity(groupIntent);
                 } else {
+                    Log.w(TAG, "createUser: failure", task.getException());
                     Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -8,11 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.labs12_wellness_bet_sleep_android.Models.User;
 import com.example.labs12_wellness_bet_sleep_android.Network.UserDao;
 import com.example.labs12_wellness_bet_sleep_android.R;
 
@@ -23,6 +26,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -72,7 +76,7 @@ public class LogInActivity extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent createAccountIntent = new Intent(LogInActivity.this, ManageGroups.class);
+                Intent createAccountIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
                 startActivity(createAccountIntent);
 
             }
@@ -104,8 +108,21 @@ public class LogInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Intent groupIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
-                    startActivity(groupIntent);
+                    user.getIdToken(true)
+                    .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                        public void onComplete(@NonNull Task<GetTokenResult> task) {
+                            if (task.isSuccessful()) {
+                                String idToken = task.getResult().getToken();
+                                Log.w(TAG, idToken);
+                                Intent groupIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
+                                groupIntent.putExtra("TOKEN_ID", idToken);
+                                startActivity(groupIntent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
                 }
