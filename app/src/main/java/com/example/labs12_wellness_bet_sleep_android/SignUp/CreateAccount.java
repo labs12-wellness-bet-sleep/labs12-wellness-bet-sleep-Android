@@ -74,34 +74,34 @@ CreateAccount extends AppCompatActivity {
 
                 CreateUser(email, password);
 
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        JSONObject userdata = new JSONObject();
-//                        try {
-//                            userdata.put("username",
-//                                    usernameText.getText().toString() + ",");
-//                            userdata.put("fullName",
-//                                    fullnameText.getText().toString() + ",");
-//                            userdata.put("password",
-//                                    passwordText.getText().toString() + ",");
-//                            userdata.put("email",
-//                                          emailText.getText().toString());
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                        String tokenRequest = null;
-//                        try {
-//                            tokenRequest = NetworkAdapter.httpRequest(
-//                                    "https://sleep-bet.herokuapp.com/auth/register/",
-//                                    "POST", userdata, null);
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                        Log.i(TAG, tokenRequest);
-//                    }
-//                }).start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        JSONObject userdata = new JSONObject();
+                        try {
+                            userdata.put("username",
+                                    usernameText.getText().toString() + ",");
+                            userdata.put("fullName",
+                                    fullnameText.getText().toString() + ",");
+                            userdata.put("password",
+                                    passwordText.getText().toString() + ",");
+                            userdata.put("email",
+                                          emailText.getText().toString());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        String tokenRequest = null;
+                        try {
+                            tokenRequest = NetworkAdapter.httpRequest(
+                                    "https://sleep-bet.herokuapp.com/api/users/register/",
+                                    "POST", userdata, null);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        Log.i(TAG, tokenRequest);
+                    }
+                }).start();
             }
         });
 
