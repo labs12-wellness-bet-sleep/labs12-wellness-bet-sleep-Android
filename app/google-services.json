@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "518764607202",
-    "firebase_url": "https://labs12-wellness-bet-slee-f7748.firebaseio.com",
-    "project_id": "labs12-wellness-bet-slee-f7748",
-    "storage_bucket": "labs12-wellness-bet-slee-f7748.appspot.com"
+    "project_number": "865399714573",
+    "firebase_url": "https://wellness-bet-sleep.firebaseio.com",
+    "project_id": "wellness-bet-sleep",
+    "storage_bucket": "wellness-bet-sleep.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:518764607202:android:46782eb11d29ce2c",
+        "mobilesdk_app_id": "1:865399714573:android:46782eb11d29ce2c",
         "android_client_info": {
           "package_name": "com.example.labs12_wellness_bet_sleep_android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "518764607202-o5un4hq17g6dbgrkhtsbl4mpksrvbqlq.apps.googleusercontent.com",
+          "client_id": "865399714573-6sbjl6haaql9ehi862p1s9cni9sgoq74.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.labs12_wellness_bet_sleep_android",
-            "certificate_hash": "b9602ea235891d3066acf0dcb370360f83d4684a"
+            "certificate_hash": "ee7f10ceacfb90913474bbe9e31bd0d70537e466"
           }
         },
         {
-          "client_id": "518764607202-ubo8t15i04jelq9daaqki1ve4s8g2eri.apps.googleusercontent.com",
+          "client_id": "865399714573-p8hn24qlml9qtrm0r8bi5gahbfg7shqe.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBaQLLYSwZbG8JtbLzNjyFTNZxD7JMk-Yo"
+          "current_key": "AIzaSyDAy7EtzSaLR5yhkqrQfZ9iKppUCNDTLZA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "518764607202-ubo8t15i04jelq9daaqki1ve4s8g2eri.apps.googleusercontent.com",
+              "client_id": "865399714573-p8hn24qlml9qtrm0r8bi5gahbfg7shqe.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

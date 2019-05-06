@@ -33,7 +33,7 @@
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/name_text_ca"
+        android:id="@+id/username_text_ca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView_logo"
@@ -47,10 +47,24 @@
         android:hint="@string/user_name"/>
 
     <EditText
+        android:id="@+id/fullname_text_ca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username_text_ca"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:textSize="16sp"
+        android:drawableStart="@drawable/ic_person_black_24dp"
+        android:background="#11000000"
+        android:inputType="textPersonName"
+        android:hint="@string/full_name"/>
+
+    <EditText
         android:id="@+id/email_text_ca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name_text_ca"
+        android:layout_below="@+id/fullname_text_ca"
         android:layout_marginTop="28dp"
         android:background="#11000000"
         android:drawableStart="@drawable/ic_mail_black_24dp"
