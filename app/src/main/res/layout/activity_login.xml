@@ -1,71 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/parent_layout"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     tools:context=".SignUp.LogInActivity">
 
 
-
-
-
     <ImageView
         android:id="@+id/imageView_logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="131dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
         android:contentDescription="@string/logo"
+        android:foregroundGravity="center_vertical"
+        app:layout_constraintBottom_toTopOf="@+id/textview_li_login"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textview_li_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="cursive"
+        android:text="LogIn"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/name_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@id/imageView_logo" />
 
     <EditText
         android:id="@+id/name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView_logo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:textSize="16sp"
-        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
         android:background="#11000000"
+        android:gravity="center_vertical"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:ems="10"
         android:hint="@string/email_address"
         android:inputType="textPersonName"
-        />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/password_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/textview_li_login" />
 
     <EditText
         android:id="@+id/password_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:drawableLeft="@drawable/ic_lock_black_24dp"
-        android:textSize="16sp"
-        android:hint="@string/password"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
         android:background="#11000000"
-        android:inputType="textPassword"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:ems="10"
 
-        />
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/name_text" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_below="@id/password_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/colorAccent"
         app:cardBackgroundColor="#FF4584"
+        android:foregroundGravity="center_vertical"
         app:cardCornerRadius="25dp"
-        app:cardElevation="10dp">
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_register"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/password_text">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -86,29 +125,59 @@
         android:id="@+id/textView_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cardView"
 
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="-40dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/register_here"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/textView_forgot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
         android:id="@+id/textView_forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cardView"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="-40dp"
-        android:layout_toRightOf="@+id/textView_register"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/forgot_password"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toEndOf="@+id/textView_register"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.371" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
 
 
-
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
