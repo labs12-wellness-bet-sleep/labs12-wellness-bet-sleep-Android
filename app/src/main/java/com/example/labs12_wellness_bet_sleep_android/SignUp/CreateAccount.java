@@ -47,7 +47,7 @@ CreateAccount extends AppCompatActivity {
 
         CardView signupButton = findViewById(R.id.cardView_signup);
 
-        usernameText = findViewById(R.id.username_text_ca);
+        usernameText = findViewById(R.id.name_text_ca);
         fullnameText = findViewById(R.id.fullname_text_ca);
         passwordText = findViewById(R.id.password_text_ca);
         emailText = findViewById(R.id.email_text_ca);
