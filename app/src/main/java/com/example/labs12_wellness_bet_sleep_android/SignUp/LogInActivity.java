@@ -3,10 +3,11 @@ package com.example.labs12_wellness_bet_sleep_android.SignUp;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+
 
 import android.os.Bundle;
-//import android.support.v7.widget.CardView;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;

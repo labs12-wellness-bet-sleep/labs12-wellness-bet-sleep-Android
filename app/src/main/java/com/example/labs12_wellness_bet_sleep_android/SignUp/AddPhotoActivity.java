@@ -4,9 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.annotation.NonNull;
+
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -76,7 +77,7 @@ public class AddPhotoActivity extends AppCompatActivity {
                     .start(this);
         }
 
-       
+
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
 
@@ -134,9 +135,6 @@ public class AddPhotoActivity extends AppCompatActivity {
         }
     }
 }
-
-
-
 
 
 

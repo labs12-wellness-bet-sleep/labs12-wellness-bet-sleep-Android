@@ -27,7 +27,7 @@
 
 
 
-    <androidx.cardview.widget.CardView
+    <android.support.v7.widget.CardView
         android:id="@+id/cardView_gr"
         android:layout_width="375dp"
         android:layout_height="350dp"
@@ -111,7 +111,7 @@
                 android:hint="Message to Group"
                 android:textSize="20sp" />
 
-            <androidx.cardview.widget.CardView
+            <android.support.v7.widget.CardView
                 android:id="@+id/CreateGroup_button"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
@@ -137,11 +137,11 @@
                     android:textSize="24sp" />
              </RelativeLayout>
 
-            </androidx.cardview.widget.CardView>
+            </android.support.v7.widget.CardView>
 
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </android.support.v7.widget.CardView>
 
 
 </RelativeLayout>

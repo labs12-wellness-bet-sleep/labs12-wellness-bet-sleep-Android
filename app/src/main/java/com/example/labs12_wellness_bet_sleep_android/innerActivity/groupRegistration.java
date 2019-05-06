@@ -1,8 +1,9 @@
 package com.example.labs12_wellness_bet_sleep_android.innerActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.labs12_wellness_bet_sleep_android.R;
 
