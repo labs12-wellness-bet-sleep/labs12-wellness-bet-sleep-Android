@@ -1,8 +1,9 @@
 package com.example.labs12_wellness_bet_sleep_android.fragmentsNav;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class PageAdapterWinnerResults extends FragmentStatePagerAdapter {
 

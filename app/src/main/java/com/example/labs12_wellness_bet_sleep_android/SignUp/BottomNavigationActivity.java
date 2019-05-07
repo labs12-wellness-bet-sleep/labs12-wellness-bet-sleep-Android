@@ -1,10 +1,11 @@
 package com.example.labs12_wellness_bet_sleep_android.SignUp;
 
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.labs12_wellness_bet_sleep_android.R;

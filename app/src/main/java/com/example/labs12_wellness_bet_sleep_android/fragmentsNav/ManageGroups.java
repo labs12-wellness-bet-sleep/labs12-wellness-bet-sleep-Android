@@ -1,15 +1,14 @@
 package com.example.labs12_wellness_bet_sleep_android.fragmentsNav;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
-import android.graphics.pdf.PdfDocument;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+
 
 import com.example.labs12_wellness_bet_sleep_android.R;
-import com.google.android.material.tabs.TabLayout;
+
 
 public class ManageGroups extends AppCompatActivity {
 

@@ -3,8 +3,8 @@ package com.example.labs12_wellness_bet_sleep_android.fragmentsNav;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

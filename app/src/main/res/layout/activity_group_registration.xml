@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout4"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.cardview.widget.CardView
+    <android.support.v7.widget.CardView
         android:id="@+id/cardView_gr"
         android:layout_width="375dp"
         android:layout_height="350dp"
@@ -125,7 +125,7 @@
                 android:hint="@string/message_to_group"
                 android:textSize="20sp" />
 
-            <androidx.cardview.widget.CardView
+            <android.support.v7.widget.CardView
                 android:id="@+id/CreateGroup_button"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
@@ -152,34 +152,34 @@
                         android:textSize="24sp" />
                 </RelativeLayout>
 
-            </androidx.cardview.widget.CardView>
+            </android.support.v7.widget.CardView>
 
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </android.support.v7.widget.CardView>
 
-    <androidx.constraintlayout.widget.Guideline
+    <android.support.constraint.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="20dp" />
 
-    <androidx.constraintlayout.widget.Guideline
+    <android.support.constraint.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp" />
 
-    <androidx.constraintlayout.widget.Guideline
+    <android.support.constraint.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
 
-    <androidx.constraintlayout.widget.Guideline
+    <android.support.constraint.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -187,4 +187,4 @@
         app:layout_constraintGuide_end="20dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
