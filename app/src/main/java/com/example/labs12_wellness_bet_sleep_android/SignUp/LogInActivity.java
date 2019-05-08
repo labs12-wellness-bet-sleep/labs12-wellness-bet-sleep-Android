@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -56,7 +57,7 @@ public class LogInActivity extends AppCompatActivity {
 
         usernameText = findViewById(R.id.name_text);
         passwordText=  findViewById(R.id.password_text);
-        RelativeLayout parentLayout = findViewById(R.id.parent_layout);
+        ConstraintLayout parentLayout = findViewById(R.id.parent_layout);
         final CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
         forgotPassword = findViewById(R.id.textView_forgot);
