@@ -2,10 +2,13 @@ package com.example.labs12_wellness_bet_sleep_android.SignUp;
 
 import android.content.Intent;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import androidx.cardview.widget.CardView;
+
+
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -47,7 +50,7 @@ CreateAccount extends AppCompatActivity {
 
         CardView signupButton = findViewById(R.id.cardView_signup);
 
-        usernameText = findViewById(R.id.name_text_ca);
+        usernameText = findViewById(R.id.username_text_ca);
         fullnameText = findViewById(R.id.fullname_text_ca);
         passwordText = findViewById(R.id.password_text_ca);
         emailText = findViewById(R.id.email_text_ca);
