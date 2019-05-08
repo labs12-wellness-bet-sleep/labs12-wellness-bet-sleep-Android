@@ -20,6 +20,7 @@
     <string name="start_date">Start Date</string>
     <string name="buy_in_amount">Buy in Amount</string>
     <string name="group_name">Group Name</string>
+    <string name="join_now">Join Now</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
