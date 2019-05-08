@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/softerViolet"
     tools:context=".fragmentsNav.WinnerResults">
 
+
+
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_winner_results"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar_winner_results"
-        android:background="@color/colorPrimary"
+        android:background="@color/softViolet"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
@@ -19,8 +22,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Winner / Results Placeholder"
-            android:textSize="20dp"/>
+            android:layout_marginTop="8dp"
+            android:text="Winner"
+            android:textSize="40dp" />
 
     </android.support.v7.widget.Toolbar>
 
@@ -28,17 +32,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tablayout_winner_results"
-        android:background="@color/colorPrimary"
+        android:background="@color/softViolet"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+
+
+
     </android.support.design.widget.TabLayout>
 
+
     <android.support.v4.view.ViewPager
+        android:id="@+id/pager_winner_results"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/pager_winner_results">
+        android:layout_height="fill_parent">
+
+
+
 
     </android.support.v4.view.ViewPager>
+
+
+
+
+
+
 
 </LinearLayout>
