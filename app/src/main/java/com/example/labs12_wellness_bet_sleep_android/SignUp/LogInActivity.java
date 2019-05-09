@@ -4,9 +4,12 @@ package com.example.labs12_wellness_bet_sleep_android.SignUp;
 import android.content.Context;
 import android.content.Intent;
 
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -32,12 +35,13 @@ import com.google.firebase.auth.GetTokenResult;
 public class LogInActivity extends AppCompatActivity {
 
     public static final String TAG = "LoginTag";
+    private static final String url =
+            "https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=22DPQJ&redirect_uri=myapp%3A%2F%2Flogincallback&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800";
 
     private  EditText usernameText, passwordText;
     private int counter = 5;
     private String username, password;
-    private TextView forgotPassword;
-  
+    public static String idToken;
     private FirebaseAuth mAuth;
 
     @Override
@@ -60,9 +64,13 @@ public class LogInActivity extends AppCompatActivity {
         ConstraintLayout parentLayout = findViewById(R.id.parent_layout);
         final CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
-        forgotPassword = findViewById(R.id.textView_forgot);
+        TextView forgotPassword = findViewById(R.id.textView_forgot);
+        TextView fitbitLogin = findViewById(R.id.textview_li_login);
       
-        Context context = this;
+        final Context context = this;
+
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        final CustomTabsIntent customTabsIntent = builder.build();
 
 
         registerText.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +88,13 @@ public class LogInActivity extends AppCompatActivity {
                 Intent createAccountIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
                 startActivity(createAccountIntent);
 
+            }
+        });
+
+        fitbitLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customTabsIntent.launchUrl(context, Uri.parse(url));
             }
         });
 
@@ -113,7 +128,7 @@ public class LogInActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
                         public void onComplete(@NonNull Task<GetTokenResult> task) {
                             if (task.isSuccessful()) {
-                                String idToken = task.getResult().getToken();
+                                idToken = task.getResult().getToken();
                                 Log.w(TAG, idToken);
                                 Intent groupIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
                                 groupIntent.putExtra("TOKEN_ID", idToken);
