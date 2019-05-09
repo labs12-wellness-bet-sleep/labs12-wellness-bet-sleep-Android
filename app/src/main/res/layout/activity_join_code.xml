@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".innerActivity.joinCode">
+
+
+    <View
+        android:id="@+id/background_png_jc"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/background"
+       />
+
+    <TextView
+        android:id="@+id/textView_jc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:text="Join a Group"
+
+        android:textSize="30sp"
+        android:textStyle="bold"
+         />
+
+
+    <EditText
+        android:id="@+id/joinCode_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_code_black_24dp"
+        android:hint="Copy your code here"
+        android:inputType="number"
+        android:textSize="25sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/background_png_jc"
+        />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView_joinNow"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        app:cardBackgroundColor="#FF4584"
+        android:foregroundGravity="center_vertical"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        android:layout_below="@id/joinCode_input"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+    >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/joinNow_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/join_now"
+                android:textColor="#3F51B5"
+                android:textSize="24sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
