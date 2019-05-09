@@ -8,10 +8,13 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+//import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.labs12_wellness_bet_sleep_android.R;
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.dashBoardFragment;
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.homeFragment;
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.roomsFragment;
+//import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavigationActivity extends AppCompatActivity {
 
