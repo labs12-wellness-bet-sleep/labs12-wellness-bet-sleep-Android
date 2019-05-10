@@ -12,16 +12,13 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.labs12_wellness_bet_sleep_android.Models.User;
-import com.example.labs12_wellness_bet_sleep_android.Network.UserDao;
 import com.example.labs12_wellness_bet_sleep_android.R;
 
-import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.ManageGroups;
-import com.example.labs12_wellness_bet_sleep_android.innerActivity.GroupRegistrationActivity;
+import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.innerActivity.GroupRegistrationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -37,6 +34,7 @@ public class LogInActivity extends AppCompatActivity {
     private int counter = 5;
     private String username, password;
     private TextView forgotPassword;
+    public  ImageView joinGroup;
   
     private FirebaseAuth mAuth;
 
@@ -61,6 +59,7 @@ public class LogInActivity extends AppCompatActivity {
         final CardView loginButton = findViewById(R.id.cardView);
         TextView registerText = findViewById(R.id.textView_register);
         forgotPassword = findViewById(R.id.textView_forgot);
+        joinGroup = (ImageView) findViewById(R.id.imageView_join);
       
         Context context = this;
 
@@ -115,7 +114,7 @@ public class LogInActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 String idToken = task.getResult().getToken();
                                 Log.w(TAG, idToken);
-                                Intent groupIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
+                                Intent groupIntent = new Intent(LogInActivity.this, BottomNavigationActivity.class);
                                 groupIntent.putExtra("TOKEN_ID", idToken);
                                 startActivity(groupIntent);
                             } else {

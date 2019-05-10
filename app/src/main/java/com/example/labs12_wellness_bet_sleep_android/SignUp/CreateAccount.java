@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.labs12_wellness_bet_sleep_android.Network.NetworkAdapter;
 import com.example.labs12_wellness_bet_sleep_android.R;
-import com.example.labs12_wellness_bet_sleep_android.innerActivity.GroupRegistrationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

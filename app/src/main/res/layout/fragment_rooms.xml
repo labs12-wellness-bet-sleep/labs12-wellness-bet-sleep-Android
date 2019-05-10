@@ -8,6 +8,7 @@
     android:background="@color/softerViolet"
     tools:context=".fragmentsNav.roomsFragment">
 
+    <!-- TODO: Update blank fragment layout -->
 
     <View
         android:id="@+id/background_png"

@@ -1,7 +1,6 @@
-package com.example.labs12_wellness_bet_sleep_android.innerActivity;
+package com.example.labs12_wellness_bet_sleep_android.fragmentsNav.innerActivity;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -34,18 +33,30 @@ public class joinCode extends AppCompatActivity {
 
             }
         });
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validate(codeInput.getText().toString());
+            }
+        });
     }
 
+
+
     private void validate(String toString) {
+
+
 
         if((codeInput.equals("1234"))) {
             Intent joinGroupIntent = new Intent(joinCode.this, ManageGroups.class);
             startActivity(joinGroupIntent);
-        }else {
-            counter --;
-            if(counter == 0 ){
+        }else{
+            counter--;
+
+            if (counter == 0) {
                 submitButton.setEnabled(false);
             }
+
         }
     }
 }

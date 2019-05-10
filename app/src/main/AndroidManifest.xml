@@ -22,11 +22,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".innerActivity.joinCode"></activity>
-        <activity android:name=".innerActivity.individualGroup" />
+        <activity android:name=".fragmentsNav.innerActivity.joinCode"></activity>
+        <activity android:name=".fragmentsNav.innerActivity.individualGroup" />
         <activity android:name=".fragmentsNav.WinnerResults" />
         <activity android:name=".fragmentsNav.ManageGroups" />
-        <activity android:name=".innerActivity.GroupRegistrationActivity" />
+        <activity android:name=".fragmentsNav.innerActivity.GroupRegistrationActivity" />
         <activity android:name=".SignUp.BottomNavigationActivity" />
         <activity android:name=".SignUp.AddPhotoActivity" />
         <activity android:name=".SignUp.CreateAccount" />

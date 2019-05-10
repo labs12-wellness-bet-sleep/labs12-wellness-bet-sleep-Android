@@ -1,4 +1,4 @@
-package com.example.labs12_wellness_bet_sleep_android.innerActivity;
+package com.example.labs12_wellness_bet_sleep_android.fragmentsNav.innerActivity;
 
 
 
