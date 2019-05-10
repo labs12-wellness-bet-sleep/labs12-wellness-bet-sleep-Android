@@ -37,14 +37,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.1.0'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
 
+    implementation 'com.github.scribejava:scribejava-apis:5.3.0'
+
 
 
 }
-
-apply plugin: 'com.google.gms.google-services'
-
-
-
-
 
 apply plugin: 'com.google.gms.google-services'
