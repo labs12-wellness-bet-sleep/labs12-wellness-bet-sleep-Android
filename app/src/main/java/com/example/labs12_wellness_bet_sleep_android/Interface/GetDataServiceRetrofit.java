@@ -9,5 +9,7 @@ public interface GetDataServiceRetrofit {
     // https://sleep-bet.herokuapp.com/api/groups/3/participant
     @GET("api/groups/3/participant")
     Call<ParticipantResponse> getAllParticipant();
+
+
 }
 
