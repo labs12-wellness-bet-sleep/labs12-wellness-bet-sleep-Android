@@ -24,6 +24,7 @@ import com.example.labs12_wellness_bet_sleep_android.Network.UserDao;
 import com.example.labs12_wellness_bet_sleep_android.R;
 
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.ManageGroups;
+import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.NavigationDrawer;
 import com.example.labs12_wellness_bet_sleep_android.innerActivity.GroupRegistrationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -85,7 +86,7 @@ public class LogInActivity extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent createAccountIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
+                Intent createAccountIntent = new Intent(LogInActivity.this, NavigationDrawer.class);
                 startActivity(createAccountIntent);
 
             }
