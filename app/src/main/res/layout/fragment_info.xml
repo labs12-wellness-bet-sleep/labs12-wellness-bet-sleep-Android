@@ -1,63 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/softerViolet"
+    android:orientation="vertical"
     tools:context=".fragmentsNav.InfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/Image_PlaceHOlder"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        app:cardCornerRadius="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-
-
-
-        >
-
-        <ImageViewView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </android.support.v7.widget.CardView>
-
-    <TextView
-        android:id="@+id/text_congrats"
-        android:layout_width="167dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/softerGreen"
-        android:textSize="20dp"
-        android:layout_below="@+id/Image_PlaceHOlder"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-
-        />
-
-    <TextView
-        android:id="@+id/text_collect"
-        android:layout_width="167dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/softerGreen"
-        android:textSize="15dp"
-        android:layout_below="@+id/text_congrats"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-
-        />
-
     <ImageView
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/text_collect"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:src="@drawable/money_businessman"
-        />
+        android:id="@+id/info_fragment_profile_pic_imageview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/info_fragment_group_name_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/info_fragment_admin_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/info_fragment_buyin_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/info_fragment_currentpot_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/info_fragment_startdate_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/info_fragment_enddate_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/info_fragment_message_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
-</RelativeLayout>
+</LinearLayout>
