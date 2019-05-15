@@ -132,7 +132,7 @@ public class LogInActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 idToken = task.getResult().getToken();
                                 Log.w(TAG, idToken);
-                                Intent groupIntent = new Intent(LogInActivity.this, GroupRegistrationActivity.class);
+                                Intent groupIntent = new Intent(LogInActivity.this, BottomNavigationActivity.class);
                                 groupIntent.putExtra("TOKEN_ID", idToken);
                                 startActivity(groupIntent);
                             } else {
