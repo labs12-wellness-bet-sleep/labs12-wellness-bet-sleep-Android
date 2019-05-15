@@ -18,6 +18,10 @@ import com.example.labs12_wellness_bet_sleep_android.Models.ParticipantResponse;
 import com.example.labs12_wellness_bet_sleep_android.Network.RetrofitClientInstance;
 import com.example.labs12_wellness_bet_sleep_android.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,7 +50,7 @@ public class InfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_rankings, container, false);
+        View view = inflater.inflate(R.layout.fragment_info, container, false);
         return view;
 
         //placeHOlder for Image Display
@@ -79,7 +83,14 @@ public class InfoFragment extends Fragment {
             @Override
             public void onResponse(Call<ParticipantResponse> call, Response<ParticipantResponse> response) {
                 if(response.isSuccessful()){
-//                    generateDataList(response.body().participant);
+                    ParticipantResponse participantResponse = response.body();
+                    groupNameTextView.setText(participantResponse.groupName);
+                    adminTextView.setText("Admin: TODO");
+                    buyInTextView.setText("Buy in:$"+participantResponse.buyInAmt);
+                    currentPotTextView.setText("Current Pot Total:$ TODO");
+                    startDateTextView.setText("Start:"+parseDate(participantResponse.startDate));
+                    endDateTextView.setText("End:"+parseDate(participantResponse.endDate));
+                    messageTextview.setText(participantResponse.groupMessage);
                 }
             }
 
@@ -89,4 +100,28 @@ public class InfoFragment extends Fragment {
             }
         });
     }
+
+    /**
+     *
+     * @param input should be in yyyy-MM-dd'T'HH:mm:ss.SSSZ format
+     *              Ex: 2018-01-08T00:00:00.000Z
+     *                  2015-04-28T14:23:38.521Z
+     * @return
+     */
+    String parseDate(String input){
+        String pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+        SimpleDateFormat inputFormat = new SimpleDateFormat(pattern);
+
+        SimpleDateFormat outputFormat = new SimpleDateFormat("MM/dd/yyyy");
+
+        try {
+            Date date = inputFormat.parse(input);
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        // cannot format the input
+        return input;
+    }
 }
+

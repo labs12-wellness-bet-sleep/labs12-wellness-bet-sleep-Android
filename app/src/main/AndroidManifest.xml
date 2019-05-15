@@ -22,8 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".fragmentsNav.NavigationDrawer"></activity>
-        <activity android:name=".innerActivity.joinCode"></activity>
+        <activity android:name=".TempPackage.TempNavigationActivity"></activity>
+        <activity android:name=".fragmentsNav.NavigationDrawer" />
+        <activity android:name=".innerActivity.joinCode" />
         <activity android:name=".innerActivity.individualGroup" />
         <activity android:name=".fragmentsNav.WinnerResults" />
         <activity android:name=".fragmentsNav.ManageGroups" />
@@ -34,9 +35,11 @@
         <activity android:name=".SignUp.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="logincallback"
                     android:pathPattern=".*"
