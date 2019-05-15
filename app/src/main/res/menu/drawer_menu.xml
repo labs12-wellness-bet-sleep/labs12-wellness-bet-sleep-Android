@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/create_join_group"
+            android:title="Create / Join Group"
+            android:icon="@drawable/ic_action_createjoin"
+            />
+        <item
+            android:id="@+id/groups"
+            android:title="Groups"
+            android:icon="@drawable/ic_action_groups"
+            />
+
+    </group>
+
+    <item android:title="Controls">
+
+        <menu>
+
+            <item
+                android:id="@+id/settings"
+                android:title="Settings"
+                android:icon="@drawable/ic_action_settings"
+                />
+            <item
+                android:id="@+id/logout"
+                android:title="Log Out"
+                android:icon="@drawable/ic_action_logout"
+                />
+
+        </menu>
+
+
+    </item>
+
+</menu>
