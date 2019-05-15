@@ -86,7 +86,7 @@ public class LogInActivity extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent createAccountIntent = new Intent(LogInActivity.this, NavigationDrawer.class);
+                Intent createAccountIntent = new Intent(LogInActivity.this, ManageGroups.class);
                 startActivity(createAccountIntent);
 
             }

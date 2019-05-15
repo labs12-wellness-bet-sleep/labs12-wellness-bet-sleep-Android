@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/pending_fragment_profile_pic_imageview"
+        android:layout_width="64dp"
+        android:src="@drawable/add_person"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rank"
+        android:layout_height="64dp" />
+
+    <TextView
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/pending_fragment_profile_pic_imageview"
+        app:layout_constraintTop_toTopOf="@+id/pending_fragment_profile_pic_imageview"
+        app:layout_constraintBottom_toBottomOf="@+id/pending_fragment_profile_pic_imageview"
+        android:id="@+id/pending_fragment_participant_name_textview"
+        android:layout_gravity="center_vertical"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="username" />
+
+    <!--need to add checkbox or toggle to pending fragment-->
+
+</android.support.constraint.ConstraintLayout>
