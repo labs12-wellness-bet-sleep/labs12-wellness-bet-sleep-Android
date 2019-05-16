@@ -25,7 +25,6 @@
         <activity android:name=".TempPackage.TempNavigationActivity"></activity>
         <activity android:name=".fragmentsNav.NavigationDrawer" />
         <activity android:name=".innerActivity.joinCode" />
-        <activity android:name=".innerActivity.individualGroup" />
         <activity android:name=".fragmentsNav.WinnerResults" />
         <activity android:name=".fragmentsNav.ManageGroups" />
         <activity android:name=".innerActivity.GroupRegistrationActivity" />

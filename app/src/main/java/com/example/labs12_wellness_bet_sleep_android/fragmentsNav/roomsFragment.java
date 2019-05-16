@@ -16,31 +16,32 @@ import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.innerActivity.
 
 public class roomsFragment extends Fragment {
 
-    @Nullable
+    public roomsFragment(){
+
+        // Required empty public constructor
+
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view =  inflater.inflate(R.layout.fragment_create_join, container, false);
 
         ImageView joinGroup = (ImageView)view.findViewById(R.id.imageView_join);
 
-        joinGroup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+   joinGroup.setOnClickListener(new View.OnClickListener() {
+       @Override
+       public void onClick(View v) {
 
-                Intent in = new Intent(getActivity().getBaseContext(), joinCode.class);
-                in.putExtra("some", "some data");
-                getActivity().startActivity(in);
+           Intent i = new Intent(getActivity(), joinCode.class);
+           startActivity(i);
 
+       }
+   });
 
-
-            }
-        });
-
-
-
-
-
-        return view;
+       return view;
 
     }
+
 }
+
