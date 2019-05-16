@@ -4,6 +4,7 @@ package com.example.labs12_wellness_bet_sleep_android.SignUp;
 import android.content.Context;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
