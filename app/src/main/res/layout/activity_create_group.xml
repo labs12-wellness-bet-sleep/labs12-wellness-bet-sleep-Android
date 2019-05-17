@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
@@ -97,12 +97,13 @@ tools:context=".fragmentsNav.InfoFragment">
         android:id="@+id/cardView_creat_group"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
+        android:layout_gravity="center_horizontal"
         android:background="@color/colorAccent"
         app:cardBackgroundColor="#FF4584"
-        android:gravity="center_horizontal"
+
+
+
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
         >
@@ -123,4 +124,4 @@ tools:context=".fragmentsNav.InfoFragment">
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
-</ScrollView>
+</RelativeLayout>
