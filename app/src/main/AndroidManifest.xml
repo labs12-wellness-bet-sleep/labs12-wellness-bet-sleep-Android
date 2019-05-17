@@ -22,7 +22,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".TempPackage.TempNavigationActivity"></activity>
+        <activity android:name=".fragmentsNav.innerActivity.CreateGroup"></activity>
+        <activity android:name=".TempPackage.TempNavigationActivity" />
         <activity android:name=".fragmentsNav.NavigationDrawer" />
         <activity android:name=".innerActivity.joinCode" />
         <activity android:name=".fragmentsNav.WinnerResults" />
