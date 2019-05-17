@@ -34,7 +34,7 @@ public class joinCode extends AppCompatActivity {
         });
     }
 
-    private void validate(String toString) {
+    private void validate(String codeInput) {
 
         if((codeInput.equals("1234"))) {
             Intent joinGroupIntent = new Intent(joinCode.this, ManageGroups.class);
@@ -49,3 +49,5 @@ public class joinCode extends AppCompatActivity {
         }
     }
 }
+
+
