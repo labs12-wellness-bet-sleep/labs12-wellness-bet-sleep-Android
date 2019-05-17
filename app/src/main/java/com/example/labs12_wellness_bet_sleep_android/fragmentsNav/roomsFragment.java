@@ -13,8 +13,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.labs12_wellness_bet_sleep_android.R;
-import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.innerActivity.CreateGroup;
+import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.innerActivity.GroupRegistrationActivity;
 import com.example.labs12_wellness_bet_sleep_android.fragmentsNav.innerActivity.joinCode;
+
+import java.security.acl.Group;
 
 public class roomsFragment extends Fragment {
 
@@ -47,7 +49,7 @@ public class roomsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent (getActivity(), CreateGroup.class);
+                Intent intent = new Intent (getActivity(), GroupRegistrationActivity.class);
                 startActivity(intent);
 
             }
