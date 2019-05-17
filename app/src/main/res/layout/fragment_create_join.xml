@@ -67,6 +67,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="75dp"
+                android:clickable="true"
+                android:focusable="true"
                 app:srcCompat="@drawable/join_group" />
 
             <TextView

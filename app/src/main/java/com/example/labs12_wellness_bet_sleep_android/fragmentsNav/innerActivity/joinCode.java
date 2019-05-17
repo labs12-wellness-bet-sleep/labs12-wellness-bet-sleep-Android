@@ -30,22 +30,11 @@ public class joinCode extends AppCompatActivity {
 
                 validate(codeInput.getText().toString());
 
-
-            }
-        });
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validate(codeInput.getText().toString());
             }
         });
     }
 
-
-
-    private void validate(String toString) {
-
-
+    private void validate(String codeInput) {
 
         if((codeInput.equals("1234"))) {
             Intent joinGroupIntent = new Intent(joinCode.this, ManageGroups.class);
@@ -60,3 +49,5 @@ public class joinCode extends AppCompatActivity {
         }
     }
 }
+
+

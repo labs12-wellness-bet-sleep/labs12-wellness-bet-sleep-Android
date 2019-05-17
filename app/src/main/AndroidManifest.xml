@@ -25,11 +25,11 @@
         <activity android:name=".TempPackage.TempNavigationActivity"></activity>
         <activity android:name=".fragmentsNav.NavigationDrawer" />
         <activity android:name=".innerActivity.joinCode" />
-        <activity android:name=".innerActivity.individualGroup" />
         <activity android:name=".fragmentsNav.WinnerResults" />
         <activity android:name=".fragmentsNav.ManageGroups" />
         <activity android:name=".innerActivity.GroupRegistrationActivity" />
         <activity android:name=".SignUp.BottomNavigationActivity" />
+        <activity android:name=".fragmentsNav.innerActivity.joinCode" />
         <activity android:name=".SignUp.AddPhotoActivity" />
         <activity android:name=".SignUp.CreateAccount" />
         <activity android:name=".SignUp.LogInActivity">
