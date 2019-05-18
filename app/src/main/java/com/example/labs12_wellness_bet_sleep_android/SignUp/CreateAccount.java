@@ -25,11 +25,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class
 CreateAccount extends AppCompatActivity {
@@ -37,7 +41,8 @@ CreateAccount extends AppCompatActivity {
     public static final String TAG = "CreateAccountTag";
 
     private EditText usernameText, emailText, passwordText, fullnameText;
-    private String username, password, email;
+    private String username, password, email, fullname, idToken;
+    public static Map<String, String> headerProperties;
     private FirebaseAuth mAuth;
 
 
@@ -59,6 +64,10 @@ CreateAccount extends AppCompatActivity {
         emailText = findViewById(R.id.email_text_ca);
 
 
+        headerProperties = new HashMap<>();
+        headerProperties.put("Authorization", "Basic " + idToken);
+
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +85,7 @@ CreateAccount extends AppCompatActivity {
                 username = usernameText.getText().toString();
                 password = passwordText.getText().toString();
                 email = emailText.getText().toString();
+                fullname = fullnameText.getText().toString();
 
 
                 CreateUser(email, password);
@@ -86,13 +96,13 @@ CreateAccount extends AppCompatActivity {
                         JSONObject userdata = new JSONObject();
                         try {
                             userdata.put("username",
-                                    usernameText.getText().toString() + ",");
+                                    username + ",");
                             userdata.put("fullName",
-                                    fullnameText.getText().toString() + ",");
+                                    fullname + ",");
                             userdata.put("password",
-                                    passwordText.getText().toString() + ",");
+                                    password + ",");
                             userdata.put("email",
-                                          emailText.getText().toString());
+                                          email);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -100,7 +110,7 @@ CreateAccount extends AppCompatActivity {
                         try {
                             tokenRequest = NetworkAdapter.httpRequest(
                                     "https://sleep-bet.herokuapp.com/api/users/register/",
-                                    "POST", userdata, null);
+                                    "POST", userdata, headerProperties);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -108,6 +118,9 @@ CreateAccount extends AppCompatActivity {
                         Log.i(TAG, tokenRequest);
                     }
                 }).start();
+
+                Intent groupIntent = new Intent(CreateAccount.this, LogInActivity.class);
+                startActivity(groupIntent);
             }
         });
 
@@ -118,8 +131,18 @@ CreateAccount extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent groupIntent = new Intent(CreateAccount.this, LogInActivity.class);
-                    startActivity(groupIntent);
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    user.getIdToken(true)
+                            .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                    if (task.isSuccessful()) {
+                                        idToken = task.getResult().getToken();
+                                        Log.w(TAG, idToken);
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                 } else {
                     Log.w(TAG, "createUser: failure", task.getException());
                     Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
